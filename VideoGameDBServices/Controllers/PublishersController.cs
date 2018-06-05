@@ -80,7 +80,7 @@ namespace VideoGameDBServices.Controllers
                     return BadRequest(ModelState);
                 }
 
-                var games = _publisherRepository.GetGamesByPublisher(publisherId);
+                var games = await _publisherRepository.GetGamesByPublisher(publisherId);
 
                 if (games == null)
                 {
