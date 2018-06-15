@@ -12,6 +12,7 @@ namespace VideoGameDBServices.Controllers
 {
     [Produces("application/json")]
     [Route("api/Ratings")]
+    [ResponseCache(Duration = 3600)]
     public class RatingsController : Controller
     {
 

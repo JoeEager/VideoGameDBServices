@@ -37,6 +37,8 @@ namespace VideoGameDBServices
             services.AddScoped<ISystemRepository, SystemRepository>();
             services.AddMvc();
 
+            services.AddResponseCaching();
+
             //Setting it up so we can read settings from the appsettings.json, mainly for the db path
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -55,6 +57,8 @@ namespace VideoGameDBServices
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();
+
+            app.UseResponseCaching();
             
 
            

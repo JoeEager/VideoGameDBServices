@@ -13,6 +13,7 @@ namespace VideoGameDBServices.Controllers
 {
     [Produces("application/json")]
     [Route("api/Manufacturers")]
+    [ResponseCache(Duration = 3600)]
     public class ManufacturersController : Controller
     {
 

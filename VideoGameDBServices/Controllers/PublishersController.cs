@@ -12,6 +12,7 @@ namespace VideoGameDBServices.Controllers
 {
     [Produces("application/json")]
     [Route("api/Publishers")]
+    [ResponseCache(Duration = 3600)]
     public class PublishersController : Controller
     {
         private readonly IPublisherRepository _publisherRepository;

@@ -12,6 +12,7 @@ namespace VideoGameDBServices.Controllers
 {
     [Produces("application/json")]
     [Route("api/Developers")]
+    [ResponseCache(Duration =3600)]
     public class DevelopersController : Controller
     {
         private readonly IDeveloperRepository _developerRepostiory;

@@ -13,6 +13,7 @@ namespace VideoGameDBServices.Controllers
 {
     [Produces("application/json")]
     [Route("api/Systems")]
+    [ResponseCache(Duration = 3600)]
     public class SystemsController : Controller
     {
         private readonly ISystemRepository _systemRepository;
