@@ -11,10 +11,11 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/games",
+      "launchUrl": "api/systems",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "use64Bit": true
     },
     "VideoGameDBServices": {
       "commandName": "Project",

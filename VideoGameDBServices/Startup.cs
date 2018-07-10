@@ -13,6 +13,9 @@ using Microsoft.EntityFrameworkCore;
 using System.IO;
 using VideoGameDBServices.Interfaces;
 using VideoGameDBServices.Repositories;
+using Microsoft.AspNet.OData.Extensions;
+using Microsoft.AspNet.OData.Builder;
+using Microsoft.OData.Edm;
 
 namespace VideoGameDBServices
 {
@@ -36,6 +39,7 @@ namespace VideoGameDBServices
             services.AddScoped<IRatingRepository, RatingRepository>();
             services.AddScoped<ISystemRepository, SystemRepository>();
             services.AddMvc();
+            services.AddOData();
 
             services.AddResponseCaching();
 
@@ -56,12 +60,30 @@ namespace VideoGameDBServices
             }
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMvc();
+            //app.UseMvc();
+
+            app.UseMvc(routes =>
+            {
+                routes.Select().Count().Filter().OrderBy().Expand().MaxTop(null);
+                routes.MapODataServiceRoute("odata", "odata", GetEdmModel());
+                routes.EnableDependencyInjection();
+            });
 
             app.UseResponseCaching();
-            
-
-           
         }
+
+        private static IEdmModel GetEdmModel()
+
+        {
+
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+
+            builder.EntitySet<Systems>("SystemsData");
+
+            return builder.GetEdmModel();
+
+        }
+
+
     }
 }

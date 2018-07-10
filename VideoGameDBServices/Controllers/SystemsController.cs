@@ -24,7 +24,7 @@ namespace VideoGameDBServices.Controllers
         }
 
         // GET: api/Systems
-        [HttpGet(Name ="GetSystems")]
+        [HttpGet(Name = "GetSystems")]
         public IActionResult GetSystems()
         {
             try
@@ -81,7 +81,7 @@ namespace VideoGameDBServices.Controllers
                     return BadRequest(ModelState);
                 }
 
-                var games= await _systemRepository.GetGamesBySystem(systemId);
+                var games = await _systemRepository.GetGamesBySystem(systemId);
 
                 if (games == null)
                 {
