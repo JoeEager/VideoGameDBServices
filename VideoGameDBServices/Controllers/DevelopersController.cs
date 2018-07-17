@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNet.OData;
 using Microsoft.EntityFrameworkCore;
 using VideoGameDBServices.Models;
 using System;
@@ -22,6 +23,7 @@ namespace VideoGameDBServices.Controllers
             _developerRepostiory = developerRepository;
         }
 
+        [EnableQuery]
         // GET: api/Developers
         [HttpGet(Name ="GetDevelopers")]
         public IActionResult GetDevelopers()

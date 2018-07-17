@@ -8,6 +8,7 @@
     <h1>VideoGame DB Services</h1>
 
     This is a Asp.Net Core 2.0 project utilizing EF Core and SQLite.
+    Now includes Odata v.4 to make building custom REST queries easier. 
     <p>Current Systems/Games include Atari:</p>
     <ul>
         <li>Atari 2600</li>
@@ -22,6 +23,7 @@
     </ul>
     <br />Examples:
     <p><a href="https://videogamedatabase.azurewebsites.net/api/games">https://videogamedatabase.azurewebsites.net/api/games</a></p>
+    <p><a href="https://videogamedatabase.azurewebsites.net/api/games?$filter=contains(Description,'tomb')&$select=title,description">https://videogamedatabase.azurewebsites.net/api/games?$filter=contains(Description,'tomb')&$select=title,description</a></p>
     <p><a href="https://videogamedatabase.azurewebsites.net/api/systems">https://videogamedatabase.azurewebsites.net/api/systems</a></p>
     <p><a href="https://videogamedatabase.azurewebsites.net/api/ratings">https://videogamedatabase.azurewebsites.net/api/ratings</a></p>
     <p><a href="https://videogamedatabase.azurewebsites.net/api/publishers">https://videogamedatabase.azurewebsites.net/api/publishers</a></p>

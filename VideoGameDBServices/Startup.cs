@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -14,8 +11,7 @@ using System.IO;
 using VideoGameDBServices.Interfaces;
 using VideoGameDBServices.Repositories;
 using Microsoft.AspNet.OData.Extensions;
-using Microsoft.AspNet.OData.Builder;
-using Microsoft.OData.Edm;
+
 
 namespace VideoGameDBServices
 {
@@ -65,25 +61,13 @@ namespace VideoGameDBServices
             app.UseMvc(routes =>
             {
                 routes.Select().Count().Filter().OrderBy().Expand().MaxTop(null);
-                routes.MapODataServiceRoute("odata", "odata", GetEdmModel());
                 routes.EnableDependencyInjection();
             });
 
             app.UseResponseCaching();
         }
 
-        private static IEdmModel GetEdmModel()
-
-        {
-
-            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
-
-            builder.EntitySet<Systems>("SystemsData");
-
-            return builder.GetEdmModel();
-
-        }
-
+        
 
     }
 }

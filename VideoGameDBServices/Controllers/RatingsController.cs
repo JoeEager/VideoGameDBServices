@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNet.OData;
 using Microsoft.EntityFrameworkCore;
 using VideoGameDBServices.Models;
 using System;
@@ -23,6 +24,7 @@ namespace VideoGameDBServices.Controllers
             _ratingRepository = ratingRepository;
         }
 
+        [EnableQuery]
         // GET: api/Ratings
         [HttpGet(Name ="GetRatings")]
         public IActionResult GetRatings()

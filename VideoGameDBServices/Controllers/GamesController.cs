@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNet.OData;
 using Microsoft.EntityFrameworkCore;
 using VideoGameDBServices.Models;
 using System;
@@ -22,7 +23,7 @@ namespace VideoGameDBServices.Controllers
             _gameRepository = gameRepository;
         }
 
-        
+        [EnableQuery]
         // GET: api/Games
         [HttpGet(Name ="GetGames")]
         public IActionResult GetGames()
