@@ -10,9 +10,9 @@ namespace VideoGameDBServices.Repositories
 {
     public class PublisherRepository : IPublisherRepository
     {
-        private videogamesContext _context;
+        private VideogamesContext _context;
 
-        public PublisherRepository(videogamesContext context)
+        public PublisherRepository(VideogamesContext context)
         {
             _context = context;
         }

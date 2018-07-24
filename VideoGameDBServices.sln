@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoGameDBServices", "VideoGameDBServices\VideoGameDBServices.csproj", "{08BEE9EF-30D8-4E61-8487-94B532F9E8D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoGameDBServices", "VideoGameDBServices\VideoGameDBServices.csproj", "{08BEE9EF-30D8-4E61-8487-94B532F9E8D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoGameDBServiceTests", "VideoGameDBServiceTests\VideoGameDBServiceTests.csproj", "{18CA9496-C818-4EED-8F68-347A32C2BB7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{08BEE9EF-30D8-4E61-8487-94B532F9E8D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08BEE9EF-30D8-4E61-8487-94B532F9E8D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08BEE9EF-30D8-4E61-8487-94B532F9E8D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18CA9496-C818-4EED-8F68-347A32C2BB7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18CA9496-C818-4EED-8F68-347A32C2BB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18CA9496-C818-4EED-8F68-347A32C2BB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18CA9496-C818-4EED-8F68-347A32C2BB7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

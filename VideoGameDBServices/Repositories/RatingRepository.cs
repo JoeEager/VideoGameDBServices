@@ -12,9 +12,9 @@ namespace VideoGameDBServices.Repositories
     public class RatingRepository : IRatingRepository
     {
 
-        private readonly videogamesContext _context;
+        private readonly VideogamesContext _context;
 
-        public RatingRepository(videogamesContext context)
+        public RatingRepository(VideogamesContext context)
         {
             _context = context;
         }

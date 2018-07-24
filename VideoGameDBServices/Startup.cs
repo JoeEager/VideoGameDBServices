@@ -44,7 +44,7 @@ namespace VideoGameDBServices
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json");
             var connection = Configuration["database"];
-            services.AddDbContext<videogamesContext>(options=>options.UseSqlite(connection));
+            services.AddDbContext<VideogamesContext>(options=>options.UseSqlite(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

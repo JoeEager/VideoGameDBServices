@@ -10,9 +10,9 @@ namespace VideoGameDBServices.Repositories
 {
     public class YearRepository : IYearRepository
     {
-        private videogamesContext _context;
+        private VideogamesContext _context;
 
-        public YearRepository(videogamesContext context)
+        public YearRepository(VideogamesContext context)
         {
             _context = context;
         }

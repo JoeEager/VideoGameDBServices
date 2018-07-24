@@ -12,9 +12,9 @@ namespace VideoGameDBServices.Repositories
     public class GameRepository : IGameRepository
     {
 
-        private videogamesContext _context;
+        private VideogamesContext _context;
 
-        public GameRepository(videogamesContext context)
+        public GameRepository(VideogamesContext context)
         {
             _context = context;
         }

@@ -10,9 +10,9 @@ namespace VideoGameDBServices.Repositories
 {
     public class ManufacturerRepository : IManufacturerRepository
     {
-        private videogamesContext _context;
+        private VideogamesContext _context;
 
-        public ManufacturerRepository(videogamesContext context)
+        public ManufacturerRepository(VideogamesContext context)
         {
             _context = context;
         }

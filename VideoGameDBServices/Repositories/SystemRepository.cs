@@ -10,9 +10,9 @@ namespace VideoGameDBServices.Repositories
 {
     public class SystemRepository : ISystemRepository
     {
-        private readonly videogamesContext _context;
+        private readonly VideogamesContext _context;
 
-        public SystemRepository(videogamesContext context)
+        public SystemRepository(VideogamesContext context)
         {
             _context = context;
         }

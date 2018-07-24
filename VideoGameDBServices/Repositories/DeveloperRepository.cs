@@ -10,9 +10,9 @@ namespace VideoGameDBServices.Repositories
 {
     public class DeveloperRepository : IDeveloperRepository
     {
-        private videogamesContext _context;
+        private VideogamesContext _context;
 
-        public DeveloperRepository(videogamesContext context)
+        public DeveloperRepository(VideogamesContext context)
         {
             _context = context;
         }

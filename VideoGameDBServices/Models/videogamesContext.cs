@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace VideoGameDBServices.Models
 {
-    public partial class videogamesContext : DbContext
+    public partial class VideogamesContext : DbContext
     {
         public virtual DbSet<Developers> Developers { get; set; }
         public virtual DbSet<Games> Games { get; set; }
@@ -14,7 +14,7 @@ namespace VideoGameDBServices.Models
         public virtual DbSet<Systems> Systems { get; set; }
         public virtual DbSet<Years> Years { get; set; }
 
-        public videogamesContext(DbContextOptions<videogamesContext> options) :base(options)
+        public VideogamesContext(DbContextOptions<VideogamesContext> options) :base(options)
         {
 
         }
