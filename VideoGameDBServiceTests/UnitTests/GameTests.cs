@@ -39,6 +39,7 @@ namespace VideoGameDBServiceTests
         }
 
         [TestMethod]
+        [TestCategory("UnitTests")]
         public void TestGameRepo_GetAll()
         {
 
@@ -54,6 +55,7 @@ namespace VideoGameDBServiceTests
         }
 
         [TestMethod]
+        [TestCategory("UnitTests")]
         public async Task TestGameRepo_GetSingle()
         {
             //Arrange
@@ -70,6 +72,7 @@ namespace VideoGameDBServiceTests
         }
 
         [TestMethod]
+        [TestCategory("UnitTests")]
         public async Task TestGameRepo_Exists()
         {
             //Arrange

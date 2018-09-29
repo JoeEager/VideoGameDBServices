@@ -7,11 +7,11 @@ using System.Collections.Generic;
 namespace VideoGameDBServiceTests.IntegrationTests
 {
     [TestClass]
-    public class DeveloperIntegrationTests
+    public class GameIntegrationTests
     {
         private readonly HttpClient _client;
 
-        public DeveloperIntegrationTests()
+        public GameIntegrationTests()
         {
             var testEnv = new VideoGameDBServiceTests.IntegrationTests.IntegrationTestBuilder();
             _client = testEnv.ConfigureTests();
@@ -19,14 +19,14 @@ namespace VideoGameDBServiceTests.IntegrationTests
 
         [TestMethod]
         [TestCategory("IntegrationTests")]
-        public void IntegrationTestDevelopers_GetAll()
+        public void IntegrationTestGames_GetAll()
         {
             // Arrange
-            var request = new HttpRequestMessage(new HttpMethod("GET"), "/api/Developers/");
+            var request = new HttpRequestMessage(new HttpMethod("GET"), "/api/Games/");
 
             // Act
             var response = _client.SendAsync(request).Result;
-            var content = (response.Content.ReadAsAsync<List<Developers>>()).Result;
+            var content = (response.Content.ReadAsAsync<List<Games>>()).Result;
 
 
             // Assert
@@ -36,18 +36,18 @@ namespace VideoGameDBServiceTests.IntegrationTests
 
         [TestMethod]
         [TestCategory("IntegrationTests")]
-        public void IntegrationTestDevelopers_GetSingle()
+        public void IntegrationTestGames_GetSingle()
         {
             //Arrange 
-            var request = new HttpRequestMessage(new HttpMethod("GET"), "/api/Developers/1");
+            var request = new HttpRequestMessage(new HttpMethod("GET"), "/api/Games/472");
 
             //Act
             var response = _client.SendAsync(request).Result;
-            var content = (response.Content.ReadAsAsync<Developers>()).Result;
+            var content = (response.Content.ReadAsAsync<Games>()).Result;
 
             //Assert
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-            Assert.IsTrue(content.Id == 1);
+            Assert.IsTrue(content.Id == 472);
         }
     }
 }

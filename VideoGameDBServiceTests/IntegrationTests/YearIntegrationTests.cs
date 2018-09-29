@@ -7,11 +7,11 @@ using System.Collections.Generic;
 namespace VideoGameDBServiceTests.IntegrationTests
 {
     [TestClass]
-    public class DeveloperIntegrationTests
+    public class YearIntegrationTests
     {
         private readonly HttpClient _client;
 
-        public DeveloperIntegrationTests()
+        public YearIntegrationTests()
         {
             var testEnv = new VideoGameDBServiceTests.IntegrationTests.IntegrationTestBuilder();
             _client = testEnv.ConfigureTests();
@@ -19,14 +19,14 @@ namespace VideoGameDBServiceTests.IntegrationTests
 
         [TestMethod]
         [TestCategory("IntegrationTests")]
-        public void IntegrationTestDevelopers_GetAll()
+        public void IntegrationTestYears_GetAll()
         {
             // Arrange
-            var request = new HttpRequestMessage(new HttpMethod("GET"), "/api/Developers/");
+            var request = new HttpRequestMessage(new HttpMethod("GET"), "/api/Years/");
 
             // Act
             var response = _client.SendAsync(request).Result;
-            var content = (response.Content.ReadAsAsync<List<Developers>>()).Result;
+            var content = (response.Content.ReadAsAsync<List<Years>>()).Result;
 
 
             // Assert
@@ -36,14 +36,14 @@ namespace VideoGameDBServiceTests.IntegrationTests
 
         [TestMethod]
         [TestCategory("IntegrationTests")]
-        public void IntegrationTestDevelopers_GetSingle()
+        public void IntegrationTestYears_GetSingle()
         {
             //Arrange 
-            var request = new HttpRequestMessage(new HttpMethod("GET"), "/api/Developers/1");
+            var request = new HttpRequestMessage(new HttpMethod("GET"), "/api/Years/1");
 
             //Act
             var response = _client.SendAsync(request).Result;
-            var content = (response.Content.ReadAsAsync<Developers>()).Result;
+            var content = (response.Content.ReadAsAsync<Years>()).Result;
 
             //Assert
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
