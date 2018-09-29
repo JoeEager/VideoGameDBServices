@@ -14,11 +14,12 @@ namespace VideoGameDBServiceTests.IntegrationTests
     {
         public HttpClient ConfigureTests()
         {
+
             var builder = WebHost.CreateDefaultBuilder()
-                .UseEnvironment("Development")
+                .UseEnvironment("Production")
                 .UseStartup<Startup>();
             TestServer server = new TestServer(builder);
-            return(server.CreateClient());
+            return (server.CreateClient());
         }
     }
 }
