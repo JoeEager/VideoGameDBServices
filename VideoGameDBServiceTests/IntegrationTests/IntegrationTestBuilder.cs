@@ -16,7 +16,7 @@ namespace VideoGameDBServiceTests.IntegrationTests
         {
 
             var builder = WebHost.CreateDefaultBuilder()
-                .UseEnvironment("Production")
+                .UseEnvironment("Development")
                 .UseStartup<Startup>();
             TestServer server = new TestServer(builder);
             return (server.CreateClient());
