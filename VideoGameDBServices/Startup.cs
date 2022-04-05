@@ -29,7 +29,7 @@ namespace VideoGameDBServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddOData(options => options.Select().Filter().OrderBy());
             services.AddScoped<IGameRepository, GameRepository>();
             services.AddScoped<IYearRepository,YearRepository>();
             services.AddScoped<IDeveloperRepository, DeveloperRepository>();
@@ -59,15 +59,8 @@ namespace VideoGameDBServices
             }
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            //app.UseMvc();
             app.UseRouting();
             app.UseEndpoints(endpoints => { endpoints.MapDefaultControllerRoute(); });
-
-            //app.UseMvc(routes =>
-            //{
-            //   //routes.Select().Count().Filter().OrderBy().Expand().MaxTop(null);
-            //    //routes.EnableDependencyInjection();
-            //});
 
             app.UseResponseCaching();
         }
