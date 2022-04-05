@@ -3,6 +3,7 @@ using System.Net.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VideoGameDBServices.Models;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace VideoGameDBServiceTests.IntegrationTests
 {
@@ -26,7 +27,7 @@ namespace VideoGameDBServiceTests.IntegrationTests
 
             // Act
             var response = _client.SendAsync(request).Result;
-            var content = (response.Content.ReadAsAsync<List<Systems>>()).Result;
+            var content = JsonConvert.DeserializeObject<List<Systems>>(response.Content.ReadAsStringAsync().Result);
 
 
             // Assert
@@ -43,7 +44,7 @@ namespace VideoGameDBServiceTests.IntegrationTests
 
             //Act
             var response = _client.SendAsync(request).Result;
-            var content = (response.Content.ReadAsAsync<Systems>()).Result;
+            var content = JsonConvert.DeserializeObject<Systems>(response.Content.ReadAsStringAsync().Result);
 
             //Assert
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
