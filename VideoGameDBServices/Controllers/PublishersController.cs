@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNet.OData;
+using Microsoft.AspNetCore.OData.Query;
 using Microsoft.EntityFrameworkCore;
 using VideoGameDBServices.Models;
 using System;
@@ -14,7 +14,7 @@ namespace VideoGameDBServices.Controllers
     [Produces("application/json")]
     [Route("api/Publishers")]
     [ResponseCache(Duration = 3600)]
-    public class PublishersController : Controller
+    public class PublishersController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly IPublisherRepository _publisherRepository;
 

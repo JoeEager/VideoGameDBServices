@@ -10,8 +10,10 @@ using Microsoft.EntityFrameworkCore;
 using System.IO;
 using VideoGameDBServices.Interfaces;
 using VideoGameDBServices.Repositories;
-using Microsoft.AspNet.OData.Extensions;
-
+using Microsoft.AspNetCore.OData.Extensions;
+using Microsoft.AspNetCore.OData;
+using Microsoft.EntityFrameworkCore.Sqlite;
+using Microsoft.Extensions.Hosting;
 
 namespace VideoGameDBServices
 {
@@ -27,6 +29,7 @@ namespace VideoGameDBServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers().AddOData(options => options.Select().Filter().OrderBy());
             services.AddScoped<IGameRepository, GameRepository>();
             services.AddScoped<IYearRepository,YearRepository>();
             services.AddScoped<IDeveloperRepository, DeveloperRepository>();
@@ -35,7 +38,7 @@ namespace VideoGameDBServices
             services.AddScoped<IRatingRepository, RatingRepository>();
             services.AddScoped<ISystemRepository, SystemRepository>();
             services.AddMvc();
-            services.AddOData();
+            services.AddODataQueryFilter();
 
             services.AddResponseCaching();
 
@@ -48,7 +51,7 @@ namespace VideoGameDBServices
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -56,13 +59,8 @@ namespace VideoGameDBServices
             }
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            //app.UseMvc();
-
-            app.UseMvc(routes =>
-            {
-                routes.Select().Count().Filter().OrderBy().Expand().MaxTop(null);
-                routes.EnableDependencyInjection();
-            });
+            app.UseRouting();
+            app.UseEndpoints(endpoints => { endpoints.MapDefaultControllerRoute(); });
 
             app.UseResponseCaching();
         }
